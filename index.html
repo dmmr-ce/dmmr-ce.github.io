@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Md. Motiur Rahman | Academic Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a', // slate-900
+                        secondary: '#334155', // slate-700
+                        accent: '#3b82f6', // blue-500
+                        'accent-dark': '#2563eb', // blue-600
+                        orcid: '#A6CE39', // ORCID Green
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Section transitions */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+        
+        /* Sidebar Link Active State */
+        .nav-link.active {
+            background-color: #3b82f6; /* accent */
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-link.active .icon {
+            color: #ffffff;
+        }
+
+        /* Hide scrollbar for sidebar */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <div class="flex min-h-screen relative">
+        
+        <!-- ================= MOBILE HEADER ================= -->
+        <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-primary text-white z-50 flex items-center justify-between px-4 shadow-md">
+            <div class="flex items-center gap-3 font-serif font-bold text-lg">
+                <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-sm">MR</div>
+                Dr. M. Rahman
+            </div>
+            <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <!-- Overlay for mobile -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+        
+        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-primary text-slate-300 z-50 flex flex-col transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <!-- Mobile Close Button -->
+            <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Profile Info -->
+            <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
+                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                </div>
+                <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
+                <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1 scrollbar-hide">
+                <button onclick="navigate('home')" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="home" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Home
+                </button>
+                <button onclick="navigate('publications')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="book-open" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Publications
+                </button>
+                <button onclick="navigate('software')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="code" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Software/Tools
+                </button>
+                <button onclick="navigate('supervision')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="users" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Supervision
+                </button>
+                <button onclick="navigate('students')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Student Corner
+                </button>
+                <button onclick="navigate('events')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="calendar" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Talks & Events
+                </button>
+                <button onclick="navigate('contact')" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Contact
+                </button>
+            </nav>
+
+            <!-- Social footer -->
+            <div class="p-6 border-t border-slate-800 flex justify-center gap-5">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="Google Scholar"><i data-lucide="library" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-accent transition-colors hover:scale-110 transform" title="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="ResearchGate"><i data-lucide="book" class="w-5 h-5"></i></a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-1 w-full md:pl-72 pt-16 md:pt-0 min-h-screen relative">
+            
+            <!-- Decorative Background blob -->
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 md:py-20">
+                
+                <!-- ====== HOME SECTION (HERO) ====== -->
+                <section id="home" class="page-section active">
+                    <div class="min-h-[80vh] flex flex-col justify-center">
+                        <!-- Hero Header -->
+                        <div class="max-w-4xl mb-16">
+                            <h2 class="text-accent font-bold tracking-widest uppercase mb-4 text-sm flex items-center gap-2">
+                                <span class="w-8 h-0.5 bg-accent inline-block"></span> Welcome to my Academic Portfolio
+                            </h2>
+                            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-primary leading-tight mb-6">
+                                Advancing <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-600">Structural Health</span> & Seismic Assessment.
+                            </h1>
+                            <p class="text-xl text-slate-600 leading-relaxed max-w-2xl font-light">
+                                I am an Associate Professor in the Department of Civil Engineering at Pabna University of Science and Technology (PUST), Bangladesh.
+                            </p>
+                        </div>
+
+                        <!-- Info & News Grid -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                            <!-- Biography -->
+                            <div class="lg:col-span-7">
+                                <h3 class="text-2xl font-serif font-bold text-primary mb-6 border-b border-slate-200 pb-4">Biography</h3>
+                                <div class="prose prose-lg text-slate-600 mb-8">
+                                    <p>
+                                        I am an Associate Professor in the Department of Civil Engineering at the Pabna University of Science and Technology (PUST). I am also a registered professional engineer in Bangladesh. My current research includes seismic performance and vulnerability assessment, seismic hazard and risk assessment, structural health monitoring, soil-structure interaction, primary-secondary structure interaction, and the development of computer tools for civil engineering applications.
+                                    </p>
+                                    <p>
+                                        I received my Ph.D. from the Department of Civil & Environmental Engineering at Kunsan National University, South Korea, in 2022, and my B.Sc. from Rajshahi University of Engineering and Technology (RUET) in 2012.
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-white border border-slate-200 shadow-sm text-slate-700 rounded-full text-sm font-medium">Seismic Risk Assessment</span>
+                                    <span class="px-4 py-2 bg-white border border-slate-200 shadow-sm text-slate-700 rounded-full text-sm font-medium">Structural Health Monitoring</span>
+                                    <span class="px-4 py-2 bg-white border border-slate-200 shadow-sm text-slate-700 rounded-full text-sm font-medium">Soil-Structure Interaction</span>
+                                    <span class="px-4 py-2 bg-white border border-slate-200 shadow-sm text-slate-700 rounded-full text-sm font-medium">Structural Dynamics</span>
+                                </div>
+                            </div>
+
+                            <!-- News Widget -->
+                            <div class="lg:col-span-5">
+                                <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 p-8 border border-slate-100">
+                                    <h3 class="text-xl font-serif font-bold text-primary mb-6 flex items-center gap-2">
+                                        <i data-lucide="zap" class="w-5 h-5 text-accent"></i> Recent Highlights
+                                    </h3>
+                                    <div id="highlights-container" class="space-y-6">
+                                        <!-- Loading state -->
+                                        <div class="animate-pulse flex space-x-4">
+                                            <div class="flex-1 space-y-4 py-1">
+                                                <div class="h-2 bg-slate-200 rounded w-1/4"></div>
+                                                <div class="h-2 bg-slate-200 rounded w-3/4"></div>
+                                                <div class="h-2 bg-slate-200 rounded w-5/6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ====== PUBLICATIONS SECTION ====== -->
+                <section id="publications" class="page-section">
+                    <div class="mb-12">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Research Output</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Publications</h1>
+                        <p class="text-lg text-slate-600 max-w-3xl">A comprehensive list of peer-reviewed journal articles, conference proceedings, and book chapters.</p>
+                    </div>
+
+                    <!-- ORCID Block -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                            <div class="bg-slate-50 p-3 rounded-full border border-slate-100">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID Logo" class="w-10 h-10">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary">Verified ORCID Record</h3>
+                                <a href="https://orcid.org/0000-0003-4079-2906" target="_blank" class="text-orcid hover:underline font-mono font-medium flex items-center justify-center sm:justify-start gap-1 mt-1">
+                                    https://orcid.org/0000-0003-4079-2906 <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl border border-emerald-100 text-sm flex items-start gap-3 max-w-xs">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                            <p>Publications listed are synchronized directly from the ORCID API in real-time.</p>
+                        </div>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-3 mb-10 border-b border-slate-200 pb-6">
+                        <button class="px-6 py-2.5 rounded-full bg-primary text-white font-medium text-sm shadow-md shadow-slate-900/10">All Works</button>
+                        <button class="px-6 py-2.5 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 font-medium text-sm transition-all">Journals</button>
+                        <button class="px-6 py-2.5 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 font-medium text-sm transition-all">Conferences</button>
+                    </div>
+
+                    <!-- Publication List -->
+                    <div id="publications-container" class="space-y-6">
+                        <!-- Loading state -->
+                        <div class="animate-pulse flex space-x-4 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
+                            <div class="flex-1 space-y-4 py-1">
+                                <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+                                <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+                                <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ====== SOFTWARE/TOOLS SECTION ====== -->
+                <section id="software" class="page-section">
+                    <div class="mb-12">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Open Source & Web Apps</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Software & Tools</h1>
+                        <p class="text-lg text-slate-600 max-w-3xl">Interactive structural analysis applications, computer tools, and libraries developed for civil engineering applications and research.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- FeView -->
+                        <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent">
+                                    <i data-lucide="terminal" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-3">FeView</h3>
+                            <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A finite element model (FEM) visualization and post-processing tool developed specifically for OpenSees. Intuitive interface to visualize structural models, mode shapes, and response outputs.</p>
+                            <div class="flex gap-3">
+                                <a href="https://doi.org/10.1016/j.softx.2021.100751" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                    <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Frame Analyzer -->
+                        <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500/30 transition-all duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
+                                    <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-3">Frame Analyzer</h3>
+                            <p class="text-slate-600 mb-6 flex-grow leading-relaxed">An interactive computational web tool for the linear and non-linear structural analysis of 2D frame structures subjected to various static and lateral loads.</p>
+                            <div class="flex gap-3">
+                                <a href="https://motiurce.github.io/Frame_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-emerald-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                    <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Truss Analyzer -->
+                        <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500/30 transition-all duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-600">
+                                    <i data-lucide="triangle" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-3">Truss Analyzer</h3>
+                            <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A lightweight, fast application for calculating internal axial forces, support reactions, and nodal displacements in planar truss systems using the stiffness method.</p>
+                            <div class="flex gap-3">
+                                <a href="https://motiurce.github.io/Truss_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-orange-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                    <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- MDoF Systems -->
+                        <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-purple-500/30 transition-all duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                                    <i data-lucide="activity" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-primary mb-3">MDoF Systems</h3>
+                            <p class="text-slate-600 mb-6 flex-grow leading-relaxed">Analytical application for evaluating the dynamic response, natural frequencies, and mode shapes of Multi-Degree of Freedom structural systems under seismic excitations.</p>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-purple-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                    <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ====== SUPERVISION SECTION ====== -->
+                <section id="supervision" class="page-section">
+                    <div class="mb-12">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Mentorship</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Thesis Supervision</h1>
+                        <p class="text-lg text-slate-600 max-w-3xl">I am privileged to work with an exceptional group of students pushing the boundaries of civil and structural engineering.</p>
+                    </div>
+
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-8 flex items-center gap-3">
+                        <i data-lucide="users" class="text-accent w-6 h-6"></i> Current Students
+                    </h3>
+                    
+                    <div id="current-students-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                        <!-- Loading State -->
+                        <div class="animate-pulse bg-white rounded-2xl border border-slate-200 p-8">
+                            <div class="h-4 bg-slate-200 rounded w-1/4 mb-4"></div>
+                            <div class="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+                            <div class="h-4 bg-slate-200 rounded w-full mb-8"></div>
+                            <div class="h-4 bg-slate-200 rounded w-1/2 mb-2"></div>
+                            <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-serif font-bold text-primary mb-8 flex items-center gap-3">
+                        <i data-lucide="award" class="text-accent w-6 h-6"></i> Selected Alumni
+                    </h3>
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
+                        <table class="w-full text-left text-sm min-w-[800px]">
+                            <thead class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Name</th>
+                                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Degree & Year</th>
+                                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Thesis Title</th>
+                                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Current Address</th>
+                                </tr>
+                            </thead>
+                            <tbody id="alumni-table-body" class="divide-y divide-slate-100">
+                                <!-- Loading State -->
+                                <tr>
+                                    <td colspan="4" class="px-6 py-8">
+                                        <div class="animate-pulse flex space-x-4">
+                                            <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+                                            <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+                                            <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ====== STUDENT CORNER SECTION ====== -->
+                <section id="students" class="page-section">
+                    <div class="mb-12">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Resources</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Student Corner</h1>
+                        <p class="text-lg text-slate-600 max-w-3xl">Guidelines for prospective students, current course materials, and university resources.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Join the lab -->
+                        <div class="bg-primary text-white rounded-3xl p-10 relative overflow-hidden shadow-xl shadow-slate-900/20">
+                            <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6">
+                                    <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <h3 class="text-3xl font-serif font-bold mb-4">Prospective Students</h3>
+                                <p class="text-slate-300 mb-8 leading-relaxed font-light">
+                                    I am actively seeking highly motivated graduate students. If you have a strong background in structural engineering and mathematics, please review my research and get in touch.
+                                </p>
+                                
+                                <ul class="space-y-4 mb-8 text-sm font-medium text-slate-200">
+                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Have a strong background in structural engineering</li>
+                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Read my recent publications on seismic risk</li>
+                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Email me with your CV and research interests</li>
+                                </ul>
+
+                                <button onclick="navigate('contact')" class="bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-xl transition-colors shadow-lg shadow-accent/30 flex items-center gap-2">
+                                    Contact for Supervision <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8">
+                            <!-- Courses -->
+                            <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm">
+                                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Current & Past Courses</h3>
+                                <div class="space-y-5">
+                                    <div class="group border border-slate-100 hover:border-purple-200 bg-slate-50 hover:bg-purple-50/50 rounded-2xl p-5 transition-colors cursor-pointer">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h4 class="font-bold text-slate-900 group-hover:text-purple-700 transition-colors">CE 2205: Numerical Methods & Programming</h4>
+                                        </div>
+                                        <p class="text-sm text-slate-500 mb-3">Teaching programming (Python, Matlab, C/C++) for civil engineering problem solving.</p>
+                                    </div>
+                                    <div class="border border-slate-100 bg-slate-50 rounded-2xl p-5 opacity-80">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h4 class="font-bold text-slate-700">CE 3131: Geotechnical Engineering-I</h4>
+                                        </div>
+                                        <p class="text-sm text-slate-500">Core concepts of geotechnical engineering and soil mechanics.</p>
+                                    </div>
+                                    <div class="border border-slate-100 bg-slate-50 rounded-2xl p-5 opacity-80">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h4 class="font-bold text-slate-700">CE 4203: Elements of Civil Engineering Structures</h4>
+                                        </div>
+                                        <p class="text-sm text-slate-500">Fundamental structural elements and design methodologies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ====== EVENTS SECTION ====== -->
+                <section id="events" class="page-section">
+                    <div class="mb-12">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Engagements</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Talks & Conferences</h1>
+                        <p class="text-lg text-slate-600 max-w-3xl">Upcoming seminars, keynotes, and conference attendances.</p>
+                    </div>
+
+                    <div class="relative max-w-4xl mx-auto">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2"></div>
+
+                        <div class="space-y-12">
+                            <!-- Timeline Item -->
+                            <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                                <div class="md:w-5/12 hidden md:block text-right pr-8">
+                                    <span class="text-lg font-bold text-accent">September 2022</span>
+                                    <p class="text-sm text-slate-500 mt-1">Jeju Island, Republic of Korea</p>
+                                </div>
+                                <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-accent -translate-x-1/2 flex items-center justify-center shadow-md z-10 group-hover:scale-125 transition-transform"></div>
+                                <div class="md:w-5/12 ml-12 md:ml-0 md:pl-8">
+                                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="md:hidden mb-3">
+                                            <span class="text-sm font-bold text-accent bg-blue-50 px-3 py-1 rounded-full">Sep 2022</span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-primary mb-2">EESK Conference 2022</h3>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Presented research on numerical validation of 3D geostatic models of strutted excavations using centrifugal tests at the Earthquake Engineering Society of Korea conference.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Item -->
+                            <div class="relative flex flex-col md:flex-row md:flex-row-reverse items-center justify-between group">
+                                <div class="md:w-5/12 hidden md:block text-left pl-8">
+                                    <span class="text-lg font-bold text-slate-700">April 2019</span>
+                                    <p class="text-sm text-slate-500 mt-1">Bhaktapur, Nepal</p>
+                                </div>
+                                <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-slate-400 -translate-x-1/2 flex items-center justify-center shadow-md z-10 group-hover:scale-125 transition-transform"></div>
+                                <div class="md:w-5/12 ml-12 md:ml-0 md:pr-8 text-left md:text-right">
+                                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="md:hidden mb-3">
+                                            <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full">Apr 2019</span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-primary mb-2">2nd Int. Conf. on Earthquake Engineering</h3>
+                                        <p class="text-slate-600 text-sm leading-relaxed">Presented on seismic reliability assessment of calibrated concrete gravity dams and Post Disaster Reconstruction Planning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ====== CONTACT SECTION ====== -->
+                <section id="contact" class="page-section">
+                    <div class="mb-12 text-center md:text-left">
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Get in Touch</h2>
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Contact Information</h1>
+                        <p class="text-lg text-slate-600 max-w-2xl mx-auto md:mx-0">For research collaborations, speaking engagements, or prospective student inquiries, please feel free to reach out.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+                        <!-- Contact Info Card -->
+                        <div class="lg:col-span-2 bg-primary text-white rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl">
+                            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/30 rounded-full blur-[60px] pointer-events-none"></div>
+                            
+                            <h3 class="text-2xl font-serif font-bold mb-8">Direct Contact</h3>
+                            
+                            <div class="space-y-8 relative z-10">
+                                <div class="flex items-start gap-5">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400 font-medium mb-1">Email</p>
+                                        <a href="mailto:motiur@pust.ac.bd" class="text-lg font-medium hover:text-accent transition-colors block">motiur@pust.ac.bd</a>
+                                        <a href="mailto:motiur.ce@gmail.com" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">motiur.ce@gmail.com</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start gap-5">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400 font-medium mb-1">Phone</p>
+                                        <p class="text-lg font-medium">+8801721717447</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-5">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400 font-medium mb-1">Office</p>
+                                        <p class="text-slate-200 leading-relaxed">
+                                            Department of Civil Engineering<br>
+                                            Pabna University of Science and Technology<br>
+                                            Pabna, Bangladesh
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="lg:col-span-3 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+                            <form onsubmit="event.preventDefault(); alert('Message feature is a mockup.');" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
+                                        <input type="text" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="John" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
+                                        <input type="text" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="Doe" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                                    <input type="email" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="john@example.com" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Inquiry Type</label>
+                                    <select class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all text-slate-700">
+                                        <option>Prospective Student</option>
+                                        <option>Research Collaboration</option>
+                                        <option>General Inquiry</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                                    <textarea rows="5" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all resize-none" placeholder="How can I help you?" required></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                    Send Message <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer Inner -->
+                <footer class="mt-20 border-t border-slate-200 pt-8 pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div>
+                            &copy; <script>document.write(new Date().getFullYear())</script> Dr. Md. Motiur Rahman. All rights reserved.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://pust.ac.bd" target="_blank" class="hover:text-primary transition-colors">PUST Home</a>
+                            <a href="https://pust.ac.bd/academic/departments/dept_teachers/dept_teachers_profile/100120" target="_blank" class="hover:text-primary transition-colors">University Profile</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // CSV Parser & Highlights Renderer
+        function parseCSV(str) {
+            const arr = [];
+            let quote = false;
+            let row = 0, col = 0;
+            for (let c = 0; c < str.length; c++) {
+                let cc = str[c], nc = str[c+1];
+                arr[row] = arr[row] || [];
+                arr[row][col] = arr[row][col] || '';
+                if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+                if (cc == '"') { quote = !quote; continue; }
+                if (cc == ',' && !quote) { ++col; continue; }
+                if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+                if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+                if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+                arr[row][col] += cc;
+            }
+            return arr;
+        }
+
+        function loadHighlights() {
+            // HOW TO CONNECT YOUR GOOGLE SHEET:
+            // 1. Create a Google Sheet with 3 columns exactly named: Date, Title, Description
+            // 2. Go to: File > Share > Publish to web
+            // 3. Under "Link", choose your sheet name and change "Web page" to "Comma-separated values (.csv)"
+            // 4. Click Publish, copy the generated link, and paste it below inside the quotes:
+            const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=0&single=true&output=csv'; // <-- PASTE LINK HERE
+
+            // Fallback: If you haven't pasted the link yet, it tries to load a local highlights.csv
+            const fetchURL = googleSheetURL === 'YOUR_CSV_LINK_HERE' ? 'highlights.csv' : googleSheetURL;
+
+            fetch(fetchURL)
+                .then(response => {
+                    if (!response.ok) throw new Error("Could not fetch data");
+                    return response.text();
+                })
+                .then(csvText => {
+                    const data = parseCSV(csvText);
+                    if(data.length < 2) return; // Require at least headers and one data row
+                    
+                    const headers = data[0].map(h => h.trim());
+                    const items = [];
+                    for(let i = 1; i < data.length; i++) {
+                        if(data[i].length === headers.length) {
+                            let obj = {};
+                            headers.forEach((h, idx) => obj[h] = data[i][idx].trim());
+                            items.push(obj);
+                        }
+                    }
+                    
+                    // Take the first 3 items (assuming the newest are at the top of the CSV)
+                    const latestThree = items.slice(0, 3);
+                    const container = document.getElementById('highlights-container');
+                    container.innerHTML = ''; // Clear loading pulse
+                    
+                    latestThree.forEach((item, index) => {
+                        const isFirst = index === 0;
+                        const isLast = index === latestThree.length - 1;
+                        
+                        const borderClass = isLast ? '' : 'border-l-2 border-slate-100 pb-2';
+                        const dotColorClass = isFirst ? 'bg-accent' : 'bg-slate-300';
+                        const textColorClass = isFirst ? 'text-accent' : 'text-slate-500';
+                        const leftOffset = isLast ? '-left-[5px]' : '-left-[7px]';
+
+                        container.innerHTML += `
+                            <div class="relative pl-6 ${borderClass}">
+                                <div class="absolute w-3 h-3 ${dotColorClass} rounded-full ${leftOffset} top-1.5 shadow-[0_0_0_4px_white]"></div>
+                                <span class="text-xs font-bold ${textColorClass} uppercase tracking-wider block mb-1">${item.Date || 'N/A'}</span>
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">${item.Title || 'Untitled'}</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">${item.Description || ''}</p>
+                            </div>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    console.error("Highlights error:", err);
+                    document.getElementById('highlights-container').innerHTML = 
+                        '<p class="text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">Could not load highlights. Please ensure your Google Sheet link is correct and published to the web.</p>';
+                });
+        }
+
+        // ORCID API Fetcher
+        function loadPublications() {
+            const orcidID = '0000-0003-4079-2906';
+            const orcidAPI = `https://pub.orcid.org/v3.0/${orcidID}/works`;
+
+            fetch(orcidAPI, { headers: { 'Accept': 'application/json' } })
+                .then(response => {
+                    if (!response.ok) throw new Error("Could not fetch ORCID data");
+                    return response.json();
+                })
+                .then(data => {
+                    const container = document.getElementById('publications-container');
+                    container.innerHTML = ''; // Clear loading pulse
+                    
+                    if (!data.group || data.group.length === 0) {
+                        container.innerHTML = '<p class="text-slate-500 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">No publications found on this ORCID profile.</p>';
+                        return;
+                    }
+                    
+                    data.group.forEach(group => {
+                        const summary = group['work-summary'][0];
+                        const title = summary.title?.title?.value || 'Untitled Work';
+                        const pubDate = summary['publication-date'];
+                        const year = pubDate?.year?.value || 'N/A';
+                        const journal = summary['journal-title']?.value || '';
+                        const typeRaw = summary.type || '';
+                        
+                        // Default styling
+                        let typeClass = 'bg-slate-50 text-slate-700';
+                        let typeLabel = typeRaw.replace(/_/g, ' ');
+                        let barColor = 'bg-slate-400';
+                        
+                        // Custom styling for specific types
+                        if(typeRaw.includes('JOURNAL')) {
+                            typeClass = 'bg-blue-50 text-accent';
+                            typeLabel = 'Journal Article';
+                            barColor = 'bg-accent';
+                        } else if(typeRaw.includes('CONFERENCE')) {
+                            typeClass = 'bg-emerald-50 text-emerald-700';
+                            typeLabel = 'Conference Proceeding';
+                            barColor = 'bg-emerald-500';
+                        }
+
+                        // Extract DOI link if available
+                        let doiLink = '';
+                        const extIds = summary['external-ids']?.['external-id'] || [];
+                        const doiObj = extIds.find(id => id['external-id-type'] === 'doi');
+                        if(doiObj) {
+                            doiLink = doiObj['external-id-url']?.value || `https://doi.org/${doiObj['external-id-value']}`;
+                        }
+                        
+                        const doiBtnHTML = doiLink ? `<a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-2 rounded-lg transition-colors font-medium"><i data-lucide="link" class="w-4 h-4"></i> DOI Link</a>` : '';
+
+                        container.innerHTML += `
+                            <div class="group bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1.5 h-full ${barColor}"></div>
+                                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                                    <div class="flex-1">
+                                        <span class="inline-block px-3 py-1 ${typeClass} text-xs font-bold rounded-md mb-3 uppercase tracking-wider">${typeLabel}</span>
+                                        <h3 class="text-xl font-bold text-primary mb-2 leading-tight group-hover:text-accent transition-colors">${title}</h3>
+                                        <p class="text-sm text-slate-500 italic">${journal ? journal + ', ' : ''} ${year}</p>
+                                    </div>
+                                    <div class="flex flex-row md:flex-col gap-3 flex-shrink-0 w-full md:w-auto">
+                                        ${doiBtnHTML}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    // Re-initialize Lucide icons for the newly injected HTML
+                    lucide.createIcons(); 
+                })
+                .catch(err => {
+                    console.error("ORCID sync error:", err);
+                    document.getElementById('publications-container').innerHTML = 
+                        '<p class="text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">Could not sync publications from ORCID right now. Please check your connection.</p>';
+                });
+        }
+
+        // Students & Alumni Fetcher
+        function loadStudents() {
+            // HOW TO CONNECT YOUR STUDENTS GOOGLE SHEET:
+            // 1. Create a Sheet with headers: Status, Thesis Title, Name, Degree, Year, Description, Current Address, PDF Link
+            // 2. File > Share > Publish to web -> Comma-separated values (.csv)
+            // 3. Paste link below:
+            const studentsSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=457075240&single=true&output=csv'; // <-- PASTE LINK HERE
+            const fetchURL = studentsSheetURL === 'YOUR_STUDENTS_CSV_LINK_HERE' ? 'students.csv' : studentsSheetURL;
+
+            fetch(fetchURL)
+                .then(res => {
+                    if(!res.ok) throw new Error("Could not fetch students");
+                    return res.text();
+                })
+                .then(csvText => {
+                    const data = parseCSV(csvText);
+                    if(data.length < 2) return;
+
+                    const headers = data[0].map(h => h.trim());
+                    const rows = [];
+                    for(let i = 1; i < data.length; i++) {
+                        if(data[i].length === headers.length) {
+                            let obj = {};
+                            headers.forEach((h, idx) => obj[h] = data[i][idx].trim());
+                            rows.push(obj);
+                        }
+                    }
+
+                    // Group by Status -> Thesis Title
+                    const currentStudents = {};
+                    const alumni = {};
+
+                    rows.forEach(row => {
+                        const status = (row['Status'] || '').toLowerCase().trim();
+                        const title = (row['Thesis Title'] || 'Untitled').trim();
+                        
+                        if (status === 'running') {
+                            if (!currentStudents[title]) currentStudents[title] = [];
+                            currentStudents[title].push(row);
+                        } else if (status === 'completed') {
+                            if (!alumni[title]) alumni[title] = [];
+                            alumni[title].push(row);
+                        }
+                    });
+
+                    // --- Render Current Students ---
+                    const currentContainer = document.getElementById('current-students-container');
+                    currentContainer.innerHTML = '';
+                    
+                    if (Object.keys(currentStudents).length === 0) {
+                        currentContainer.innerHTML = '<p class="text-slate-500">No current students data found.</p>';
+                    } else {
+                        for (const title in currentStudents) {
+                            const group = currentStudents[title];
+                            const first = group[0];
+                            const degree = first['Degree'] || 'Thesis Group';
+                            const desc = first['Description'] || '';
+                            
+                            const isBSc = degree.toLowerCase().includes('b.sc');
+                            const badgeBg = isBSc ? 'bg-blue-50 text-accent' : 'bg-emerald-50 text-emerald-700';
+                            const iconColor = isBSc ? 'text-accent' : 'text-emerald-600';
+
+                            let membersHtml = '';
+                            group.forEach(member => {
+                                if (member['Name']) {
+                                    membersHtml += `<li class="flex items-center gap-3 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div> ${member['Name']}</li>`;
+                                }
+                            });
+
+                            currentContainer.innerHTML += `
+                                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition-shadow flex flex-col h-full">
+                                    <div class="flex-grow">
+                                        <span class="inline-block px-3 py-1 ${badgeBg} text-xs font-bold rounded-md mb-3 uppercase tracking-wider">${degree}</span>
+                                        <h4 class="text-xl font-bold text-primary mb-3">${title}</h4>
+                                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">${desc}</p>
+                                    </div>
+                                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                                        <h5 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 ${iconColor}"></i> Group Members</h5>
+                                        <ul class="space-y-2">
+                                            ${membersHtml}
+                                        </ul>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+
+                    // --- Render Alumni ---
+                    const alumniBody = document.getElementById('alumni-table-body');
+                    alumniBody.innerHTML = '';
+                    
+                    if (Object.keys(alumni).length === 0) {
+                        alumniBody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">No alumni data found.</td></tr>';
+                    } else {
+                        for (const title in alumni) {
+                            const group = alumni[title];
+                            const first = group[0];
+                            const rowSpan = group.length;
+                            
+                            const yearStr = first['Year'] ? `, ${first['Year']}` : '';
+                            const degreeYear = `${first['Degree'] || ''}${yearStr}`;
+                            
+                            let pdfBtn = '';
+                            if (first['PDF Link']) {
+                                pdfBtn = `<a href="${first['PDF Link']}" target="_blank" class="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 bg-rose-50 text-rose-600 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors border border-rose-100">
+                                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i> View PDF
+                                          </a>`;
+                            }
+
+                            group.forEach((member, index) => {
+                                const trBorder = (index === group.length - 1) ? 'border-b border-slate-200' : 'border-b border-slate-100';
+                                
+                                let html = `<tr class="hover:bg-slate-50 transition-colors">`;
+                                
+                                // Member Name
+                                html += `<td class="px-6 py-4 ${trBorder}"><div class="font-bold text-primary whitespace-nowrap">${member['Name']}</div></td>`;
+                                
+                                // Only output the Degree & Title for the very first row of the group
+                                if (index === 0) {
+                                    html += `
+                                        <td class="px-6 py-4 text-slate-600 whitespace-nowrap border-b border-slate-200 align-top" rowspan="${rowSpan}">${degreeYear}</td>
+                                        <td class="px-6 py-4 text-slate-600 border-b border-slate-200 align-top" rowspan="${rowSpan}">
+                                            <div class="flex flex-col gap-2 items-start">
+                                                <span class="italic leading-relaxed">${title}</span>
+                                                ${pdfBtn}
+                                            </div>
+                                        </td>
+                                    `;
+                                }
+                                
+                                // Current Address
+                                const address = member['Current Address'] || '';
+                                let badgeStyle = 'bg-slate-100 text-slate-700'; // default
+                                if (address.includes('LGED')) badgeStyle = 'bg-blue-50 text-accent';
+                                else if (address.includes('PWD')) badgeStyle = 'bg-emerald-50 text-emerald-700';
+                                else if (address.includes('RHD')) badgeStyle = 'bg-orange-50 text-orange-700';
+                                else if (address.includes('Ph.D.')) badgeStyle = 'bg-purple-50 text-purple-700';
+
+                                html += `<td class="px-6 py-4 ${trBorder}">`;
+                                if(address) {
+                                    html += `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${badgeStyle} text-xs font-semibold whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3"></i> ${address}</span>`;
+                                }
+                                html += `</td></tr>`;
+                                
+                                alumniBody.innerHTML += html;
+                            });
+                        }
+                    }
+                    lucide.createIcons();
+                })
+                .catch(err => {
+                    console.error("Students error:", err);
+                    document.getElementById('current-students-container').innerHTML = '<p class="text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">Could not load current students. Ensure CSV link is correct.</p>';
+                    document.getElementById('alumni-table-body').innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">Could not load alumni data. Ensure CSV link is correct.</td></tr>';
+                });
+        }
+
+        // Run fetches when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHighlights();
+            loadPublications();
+            loadStudents();
+        });
+
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        // Toggle Mobile Sidebar
+        function toggleSidebar() {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
+        // SPA Navigation Logic
+        function navigate(sectionId) {
+            // Hide all sections smoothly
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if(target) {
+                // Small timeout allows the display to render before the CSS animation fires
+                setTimeout(() => {
+                    target.classList.add('active');
+                }, 10);
+            }
+
+            // Update Navigation active states
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                // Reset to default
+                link.classList.remove('active', 'bg-slate-800', 'text-white');
+                const icon = link.querySelector('.icon');
+                if(icon) icon.classList.remove('text-white');
+                
+                // Set active
+                if(link.getAttribute('onclick') && link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile sidebar if open
+            if(window.innerWidth < 768 && !sidebar.classList.contains('-translate-x-full')) {
+                toggleSidebar();
+            }
+
+            // Scroll to top of main content area
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
