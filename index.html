@@ -97,8 +97,8 @@
 
             <!-- Profile Info -->
             <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
-                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="files/dmmr.jpg" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
                 </div>
                 <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
                 <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
@@ -234,9 +234,10 @@
 
                     <!-- Filters -->
                     <div class="flex flex-wrap gap-3 mb-10 border-b border-slate-200 pb-6">
-                        <button class="px-6 py-2.5 rounded-full bg-primary text-white font-medium text-sm shadow-md shadow-slate-900/10">All Works</button>
-                        <button class="px-6 py-2.5 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 font-medium text-sm transition-all">Journals</button>
-                        <button class="px-6 py-2.5 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 font-medium text-sm transition-all">Conferences</button>
+                        <button data-filter="all" class="pub-filter-btn bg-primary text-white px-6 py-2.5 rounded-full font-medium text-sm shadow-md shadow-slate-900/10 transition-all">All Works</button>
+                        <button data-filter="journal" class="pub-filter-btn bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 px-6 py-2.5 rounded-full font-medium text-sm transition-all">Journals</button>
+                        <button data-filter="conference" class="pub-filter-btn bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 px-6 py-2.5 rounded-full font-medium text-sm transition-all">Conferences</button>
+                        <button data-filter="book" class="pub-filter-btn bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 px-6 py-2.5 rounded-full font-medium text-sm transition-all">Books & Chapters</button>
                     </div>
 
                     <!-- Publication List -->
@@ -269,6 +270,9 @@
                                 </div>
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-3">FeView</h3>
+                            <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                                <img src="files/FeView.png" alt="FeView UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
                             <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A finite element model (FEM) visualization and post-processing tool developed specifically for OpenSees. Intuitive interface to visualize structural models, mode shapes, and response outputs.</p>
                             <div class="flex gap-3">
                                 <a href="https://doi.org/10.1016/j.softx.2021.100751" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-3 rounded-xl transition-colors font-medium">
@@ -285,6 +289,9 @@
                                 </div>
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-3">Frame Analyzer</h3>
+                            <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                                <img src="files/frame2D.png" alt="Frame Analyzer UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
                             <p class="text-slate-600 mb-6 flex-grow leading-relaxed">An interactive computational web tool for the linear and non-linear structural analysis of 2D frame structures subjected to various static and lateral loads.</p>
                             <div class="flex gap-3">
                                 <a href="https://motiurce.github.io/Frame_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-emerald-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
@@ -301,6 +308,9 @@
                                 </div>
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-3">Truss Analyzer</h3>
+                            <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                                <img src="files/truss2D.png" alt="Truss Analyzer UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
                             <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A lightweight, fast application for calculating internal axial forces, support reactions, and nodal displacements in planar truss systems using the stiffness method.</p>
                             <div class="flex gap-3">
                                 <a href="https://motiurce.github.io/Truss_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-orange-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
@@ -317,6 +327,9 @@
                                 </div>
                             </div>
                             <h3 class="text-2xl font-bold text-primary mb-3">MDoF Systems</h3>
+                            <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                                <img src="files/mdof.png" alt="MDoF Systems UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
                             <p class="text-slate-600 mb-6 flex-grow leading-relaxed">Analytical application for evaluating the dynamic response, natural frequencies, and mode shapes of Multi-Degree of Freedom structural systems under seismic excitations.</p>
                             <div class="flex gap-3">
                                 <a href="#" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-purple-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
@@ -382,62 +395,68 @@
                 <!-- ====== STUDENT CORNER SECTION ====== -->
                 <section id="students" class="page-section">
                     <div class="mb-12">
-                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Resources</h2>
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Secure Portal</h2>
                         <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Student Corner</h1>
-                        <p class="text-lg text-slate-600 max-w-3xl">Guidelines for prospective students, current course materials, and university resources.</p>
+                        <p class="text-lg text-slate-600 max-w-3xl">Access course materials, lecture notes, assignments, and continuous assessment (CA) marks.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Join the lab -->
-                        <div class="bg-primary text-white rounded-3xl p-10 relative overflow-hidden shadow-xl shadow-slate-900/20">
-                            <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent rounded-full blur-[80px] opacity-50 pointer-events-none"></div>
-                            
-                            <div class="relative z-10">
-                                <div class="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6">
-                                    <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
-                                </div>
-                                <h3 class="text-3xl font-serif font-bold mb-4">Prospective Students</h3>
-                                <p class="text-slate-300 mb-8 leading-relaxed font-light">
-                                    I am actively seeking highly motivated graduate students. If you have a strong background in structural engineering and mathematics, please review my research and get in touch.
-                                </p>
-                                
-                                <ul class="space-y-4 mb-8 text-sm font-medium text-slate-200">
-                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Have a strong background in structural engineering</li>
-                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Read my recent publications on seismic risk</li>
-                                    <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-accent"></div> Email me with your CV and research interests</li>
-                                </ul>
-
-                                <button onclick="navigate('contact')" class="bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-xl transition-colors shadow-lg shadow-accent/30 flex items-center gap-2">
-                                    Contact for Supervision <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                                </button>
+                    <!-- LOGIN SECTION -->
+                    <div id="student-login-container" class="max-w-md mx-auto bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-16 -top-16 w-40 h-40 bg-accent/10 rounded-full blur-[40px] pointer-events-none"></div>
+                        
+                        <div class="text-center mb-8 relative z-10">
+                            <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i data-lucide="lock" class="w-8 h-8"></i>
                             </div>
+                            <h3 class="text-2xl font-bold text-primary">Student Login</h3>
+                            <p class="text-sm text-slate-500 mt-2">Please enter your credentials to access the portal.</p>
                         </div>
 
-                        <div class="space-y-8">
-                            <!-- Courses -->
-                            <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm">
-                                <h3 class="text-2xl font-serif font-bold text-primary mb-6">Current & Past Courses</h3>
-                                <div class="space-y-5">
-                                    <div class="group border border-slate-100 hover:border-purple-200 bg-slate-50 hover:bg-purple-50/50 rounded-2xl p-5 transition-colors cursor-pointer">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <h4 class="font-bold text-slate-900 group-hover:text-purple-700 transition-colors">CE 2205: Numerical Methods & Programming</h4>
-                                        </div>
-                                        <p class="text-sm text-slate-500 mb-3">Teaching programming (Python, Matlab, C/C++) for civil engineering problem solving.</p>
+                        <form id="student-login-form" class="space-y-5 relative z-10">
+                            <div id="login-error-msg" class="hidden bg-rose-50 text-rose-600 text-sm p-3 rounded-lg border border-rose-100 text-center font-medium">
+                                Invalid Student ID or Registration Number.
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Student ID</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i data-lucide="user" class="w-4 h-4 text-slate-400"></i>
                                     </div>
-                                    <div class="border border-slate-100 bg-slate-50 rounded-2xl p-5 opacity-80">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <h4 class="font-bold text-slate-700">CE 3131: Geotechnical Engineering-I</h4>
-                                        </div>
-                                        <p class="text-sm text-slate-500">Core concepts of geotechnical engineering and soil mechanics.</p>
-                                    </div>
-                                    <div class="border border-slate-100 bg-slate-50 rounded-2xl p-5 opacity-80">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <h4 class="font-bold text-slate-700">CE 4203: Elements of Civil Engineering Structures</h4>
-                                        </div>
-                                        <p class="text-sm text-slate-500">Fundamental structural elements and design methodologies.</p>
-                                    </div>
+                                    <input type="text" id="login-student-id" class="w-full pl-11 pr-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="e.g. 190101" required>
                                 </div>
                             </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Registration Number</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i data-lucide="hash" class="w-4 h-4 text-slate-400"></i>
+                                    </div>
+                                    <input type="password" id="login-reg-no" class="w-full pl-11 pr-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="Enter Reg. Number" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group mt-4">
+                                Access Portal <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- DASHBOARD SECTION (Hidden by default) -->
+                    <div id="student-dashboard-container" class="hidden space-y-10">
+                        <!-- Welcome Banner -->
+                        <div class="bg-gradient-to-r from-primary to-slate-800 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl text-white relative overflow-hidden">
+                            <div class="absolute right-0 top-0 w-64 h-full bg-accent/20 skew-x-12 transform translate-x-20"></div>
+                            <div class="relative z-10 text-center md:text-left">
+                                <h3 class="text-3xl font-serif font-bold mb-2">Welcome, <span id="student-welcome-name" class="text-accent-dark text-blue-400">Student Name</span>!</h3>
+                                <p class="text-slate-300">Student ID: <span id="student-welcome-id" class="font-mono bg-white/10 px-2 py-0.5 rounded"></span></p>
+                            </div>
+                            <button onclick="logoutStudent()" class="relative z-10 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-2.5 rounded-xl font-medium transition-colors flex items-center gap-2">
+                                <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Courses Container -->
+                        <div id="courses-materials-container" class="space-y-10">
+                            <!-- Course tables will be injected here via JS -->
                         </div>
                     </div>
                 </section>
@@ -688,7 +707,9 @@
                 });
         }
 
-        // ORCID API Fetcher
+        // ORCID API Fetcher & Filtering Logic
+        let allPublicationsData = []; // Store fetched publications globally for filtering
+
         function loadPublications() {
             const orcidID = '0000-0003-4079-2906';
             const orcidAPI = `https://pub.orcid.org/v3.0/${orcidID}/works`;
@@ -699,73 +720,124 @@
                     return response.json();
                 })
                 .then(data => {
-                    const container = document.getElementById('publications-container');
-                    container.innerHTML = ''; // Clear loading pulse
-                    
                     if (!data.group || data.group.length === 0) {
-                        container.innerHTML = '<p class="text-slate-500 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">No publications found on this ORCID profile.</p>';
+                        document.getElementById('publications-container').innerHTML = '<p class="text-slate-500 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">No publications found on this ORCID profile.</p>';
                         return;
                     }
                     
-                    data.group.forEach(group => {
-                        const summary = group['work-summary'][0];
-                        const title = summary.title?.title?.value || 'Untitled Work';
-                        const pubDate = summary['publication-date'];
-                        const year = pubDate?.year?.value || 'N/A';
-                        const journal = summary['journal-title']?.value || '';
-                        const typeRaw = summary.type || '';
-                        
-                        // Default styling
-                        let typeClass = 'bg-slate-50 text-slate-700';
-                        let typeLabel = typeRaw.replace(/_/g, ' ');
-                        let barColor = 'bg-slate-400';
-                        
-                        // Custom styling for specific types
-                        if(typeRaw.includes('JOURNAL')) {
-                            typeClass = 'bg-blue-50 text-accent';
-                            typeLabel = 'Journal Article';
-                            barColor = 'bg-accent';
-                        } else if(typeRaw.includes('CONFERENCE')) {
-                            typeClass = 'bg-emerald-50 text-emerald-700';
-                            typeLabel = 'Conference Proceeding';
-                            barColor = 'bg-emerald-500';
-                        }
-
-                        // Extract DOI link if available
-                        let doiLink = '';
-                        const extIds = summary['external-ids']?.['external-id'] || [];
-                        const doiObj = extIds.find(id => id['external-id-type'] === 'doi');
-                        if(doiObj) {
-                            doiLink = doiObj['external-id-url']?.value || `https://doi.org/${doiObj['external-id-value']}`;
-                        }
-                        
-                        const doiBtnHTML = doiLink ? `<a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-2 rounded-lg transition-colors font-medium"><i data-lucide="link" class="w-4 h-4"></i> DOI Link</a>` : '';
-
-                        container.innerHTML += `
-                            <div class="group bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                                <div class="absolute top-0 left-0 w-1.5 h-full ${barColor}"></div>
-                                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
-                                    <div class="flex-1">
-                                        <span class="inline-block px-3 py-1 ${typeClass} text-xs font-bold rounded-md mb-3 uppercase tracking-wider">${typeLabel}</span>
-                                        <h3 class="text-xl font-bold text-primary mb-2 leading-tight group-hover:text-accent transition-colors">${title}</h3>
-                                        <p class="text-sm text-slate-500 italic">${journal ? journal + ', ' : ''} ${year}</p>
-                                    </div>
-                                    <div class="flex flex-row md:flex-col gap-3 flex-shrink-0 w-full md:w-auto">
-                                        ${doiBtnHTML}
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    // Re-initialize Lucide icons for the newly injected HTML
-                    lucide.createIcons(); 
+                    // Save globally and render initially with 'all'
+                    allPublicationsData = data.group;
+                    renderPublicationsList('all');
+                    setupPublicationFilters();
                 })
                 .catch(err => {
                     console.error("ORCID sync error:", err);
                     document.getElementById('publications-container').innerHTML = 
                         '<p class="text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">Could not sync publications from ORCID right now. Please check your connection.</p>';
                 });
+        }
+
+        // Function to render publications based on selected filter
+        function renderPublicationsList(filter) {
+            const container = document.getElementById('publications-container');
+            container.innerHTML = ''; // Clear container
+            
+            let count = 0;
+
+            allPublicationsData.forEach(group => {
+                const summary = group['work-summary'][0];
+                const typeRaw = summary.type || '';
+                const typeLower = typeRaw.toLowerCase();
+
+                // Apply Filtering Logic
+                if (filter === 'journal' && !typeLower.includes('journal')) return;
+                if (filter === 'conference' && !typeLower.includes('conference')) return;
+                if (filter === 'book' && !typeLower.includes('book') && !typeLower.includes('chapter')) return;
+
+                count++;
+
+                const title = summary.title?.title?.value || 'Untitled Work';
+                const pubDate = summary['publication-date'];
+                const year = pubDate?.year?.value || 'N/A';
+                const journal = summary['journal-title']?.value || '';
+                
+                // Default styling
+                let typeClass = 'bg-slate-50 text-slate-700';
+                let typeLabel = typeRaw.replace(/_/g, ' ');
+                let barColor = 'bg-slate-400';
+                
+                // Custom styling for specific types
+                if(typeRaw.includes('JOURNAL')) {
+                    typeClass = 'bg-blue-50 text-accent';
+                    typeLabel = 'Journal Article';
+                    barColor = 'bg-accent';
+                } else if(typeRaw.includes('CONFERENCE')) {
+                    typeClass = 'bg-emerald-50 text-emerald-700';
+                    typeLabel = 'Conference Proceeding';
+                    barColor = 'bg-emerald-500';
+                } else if(typeRaw.includes('BOOK') || typeRaw.includes('CHAPTER')) {
+                    typeClass = 'bg-purple-50 text-purple-700';
+                    typeLabel = 'Book / Chapter';
+                    barColor = 'bg-purple-500';
+                }
+
+                // Extract DOI link if available
+                let doiLink = '';
+                const extIds = summary['external-ids']?.['external-id'] || [];
+                const doiObj = extIds.find(id => id['external-id-type'] === 'doi');
+                if(doiObj) {
+                    doiLink = doiObj['external-id-url']?.value || `https://doi.org/${doiObj['external-id-value']}`;
+                }
+                
+                const doiBtnHTML = doiLink ? `<a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-2 rounded-lg transition-colors font-medium"><i data-lucide="link" class="w-4 h-4"></i> DOI Link</a>` : '';
+
+                container.innerHTML += `
+                    <div class="group bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1.5 h-full ${barColor}"></div>
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                            <div class="flex-1">
+                                <span class="inline-block px-3 py-1 ${typeClass} text-xs font-bold rounded-md mb-3 uppercase tracking-wider">${typeLabel}</span>
+                                <h3 class="text-xl font-bold text-primary mb-2 leading-tight group-hover:text-accent transition-colors">${title}</h3>
+                                <p class="text-sm text-slate-500 italic">${journal ? journal + ', ' : ''} ${year}</p>
+                            </div>
+                            <div class="flex flex-row md:flex-col gap-3 flex-shrink-0 w-full md:w-auto">
+                                ${doiBtnHTML}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Handle empty state after filtering
+            if (count === 0) {
+                container.innerHTML = '<p class="text-slate-500 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">No publications found matching this filter.</p>';
+            }
+
+            // Re-initialize Lucide icons for the newly injected HTML
+            lucide.createIcons(); 
+        }
+
+        // Attach event listeners to filter buttons
+        function setupPublicationFilters() {
+            const buttons = document.querySelectorAll('.pub-filter-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Remove active styles from all buttons
+                    buttons.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white', 'shadow-md', 'shadow-slate-900/10');
+                        b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200', 'hover:border-slate-300', 'hover:bg-slate-50');
+                    });
+                    
+                    // Add active styles to clicked button
+                    const target = e.currentTarget;
+                    target.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200', 'hover:border-slate-300', 'hover:bg-slate-50');
+                    target.classList.add('bg-primary', 'text-white', 'shadow-md', 'shadow-slate-900/10');
+                    
+                    // Call render function with appropriate filter keyword
+                    const filterType = target.getAttribute('data-filter');
+                    renderPublicationsList(filterType);
+                });
+            });
         }
 
         // Students & Alumni Fetcher
@@ -925,11 +997,213 @@
                 });
         }
 
+        // ==========================================
+        // STUDENT PORTAL (LOGIN & MATERIALS) LOGIC
+        // ==========================================
+        let validStudents = [];
+        let courseMaterials = [];
+
+        function loadStudentPortalData() {
+            // LINKS TO YOUR GOOGLE SHEETS
+            const authSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=944711249&single=true&output=csv'; 
+            const materialsSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=2088522526&single=true&output=csv';
+
+            // 1. Fetch Students Auth Data
+            if (authSheetURL !== 'YOUR_STUDENT_AUTH_CSV_LINK_HERE') {
+                fetch(authSheetURL).then(res => res.text()).then(csv => {
+                    const data = parseCSV(csv);
+                    const headers = data[0].map(h => h.trim());
+                    validStudents = data.slice(1).map(row => {
+                        let obj = {};
+                        headers.forEach((h, i) => obj[h] = row[i]?.trim());
+                        return obj;
+                    }).filter(s => s['Student ID']); // Filter empty rows
+                }).catch(e => console.error("Auth Fetch Error", e));
+            } else {
+                // FALLBACK DEMO DATA FOR LOGIN
+                validStudents = [
+                    { "Student ID": "190101", "Registration Number": "123456", "Name": "John Doe" },
+                    { "Student ID": "190102", "Registration Number": "654321", "Name": "Jane Smith" }
+                ];
+            }
+
+            // 2. Fetch Course Materials Data
+            if (materialsSheetURL !== 'YOUR_COURSE_MATERIALS_CSV_LINK_HERE') {
+                fetch(materialsSheetURL).then(res => res.text()).then(csv => {
+                    const data = parseCSV(csv);
+                    const headers = data[0].map(h => h.trim());
+                    courseMaterials = data.slice(1).map(row => {
+                        let obj = {};
+                        headers.forEach((h, i) => obj[h] = row[i]?.trim());
+                        return obj;
+                    }).filter(m => m['Course']);
+                }).catch(e => console.error("Materials Fetch Error", e));
+            } else {
+                // FALLBACK DEMO DATA FOR MATERIALS (Multiple rows for each type)
+                courseMaterials = [
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Lecture Note", "Title": "Chapter 1: Intro to Matlab", "Date": "Oct 12, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Lecture Note", "Title": "Chapter 2: Roots of Equations", "Date": "Oct 19, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Assignment", "Title": "Assignment 1: Matrix Operations", "Date": "Oct 15, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Assignment", "Title": "Assignment 2: Newton-Raphson Method", "Date": "Oct 22, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "CA Mark", "Title": "Class Test 1 Results", "Date": "Nov 01, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "CA Mark", "Title": "Class Test 2 Results", "Date": "Nov 20, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Lecture Note", "Title": "Module 1: Soil Properties and Classification", "Date": "Sep 20, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Lecture Note", "Title": "Module 2: Soil Compaction", "Date": "Sep 27, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Instruction", "Title": "Lab Safety Guidelines", "Date": "Sep 05, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Instruction", "Title": "Project Submission Format", "Date": "Sep 12, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Important Link", "Title": "Soil Mechanics Reference Book", "Date": "Sep 10, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Important Link", "Title": "USGS Geotechnical Database", "Date": "Sep 15, 2023", "Link": "#" }
+                ];
+            }
+        }
+
+        document.getElementById('student-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputId = document.getElementById('login-student-id').value.trim();
+            const inputReg = document.getElementById('login-reg-no').value.trim();
+            const errorMsg = document.getElementById('login-error-msg');
+
+            const student = validStudents.find(s => s['Student ID'] === inputId && s['Registration Number'] === inputReg);
+
+            if (student) {
+                errorMsg.classList.add('hidden');
+                document.getElementById('student-login-container').classList.add('hidden');
+                document.getElementById('student-dashboard-container').classList.remove('hidden');
+                
+                document.getElementById('student-welcome-name').textContent = student['Name'];
+                document.getElementById('student-welcome-id').textContent = student['Student ID'];
+                
+                renderCourseMaterials();
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        });
+
+        function logoutStudent() {
+            document.getElementById('student-login-form').reset();
+            document.getElementById('login-error-msg').classList.add('hidden');
+            document.getElementById('student-dashboard-container').classList.add('hidden');
+            document.getElementById('student-login-container').classList.remove('hidden');
+        }
+
+        function renderCourseMaterials() {
+            const container = document.getElementById('courses-materials-container');
+            container.innerHTML = '';
+
+            // Group materials by Course
+            const grouped = {};
+            courseMaterials.forEach(m => {
+                const cName = m['Course'];
+                if(!grouped[cName]) grouped[cName] = [];
+                grouped[cName].push(m);
+            });
+
+            // Define Fixed Types and their styling configuration
+            const fixedTypes = ['Lecture Note', 'Assignment', 'Instruction', 'Important Link', 'CA Mark'];
+            const typeConfig = {
+                'Lecture Note': { badgeClass: 'bg-blue-50 text-accent border border-blue-100', icon: 'book-open' },
+                'Assignment': { badgeClass: 'bg-orange-50 text-orange-600 border border-orange-100', icon: 'edit' },
+                'Instruction': { badgeClass: 'bg-rose-50 text-rose-600 border border-rose-100', icon: 'alert-circle' },
+                'Important Link': { badgeClass: 'bg-emerald-50 text-emerald-600 border border-emerald-100', icon: 'external-link' },
+                'CA Mark': { badgeClass: 'bg-purple-50 text-purple-600 border border-purple-100', icon: 'award' },
+                'Other': { badgeClass: 'bg-slate-50 text-slate-600 border border-slate-200', icon: 'file' }
+            };
+
+            for (const course in grouped) {
+                let rowsHtml = '';
+                const courseItems = grouped[course];
+                
+                // Group items by Type within this specific course
+                const itemsByType = {};
+                courseItems.forEach(item => {
+                    const rawType = item['Type'] || '';
+                    let matchedType = 'Other';
+                    
+                    // Match against the 5 fixed types
+                    for (const ft of fixedTypes) {
+                        if (rawType.toLowerCase().includes(ft.toLowerCase())) {
+                            matchedType = ft;
+                            break;
+                        }
+                    }
+                    if (!itemsByType[matchedType]) itemsByType[matchedType] = [];
+                    itemsByType[matchedType].push(item);
+                });
+
+                // Iterate over fixed types in precise order
+                const allTypesToRender = [...fixedTypes, 'Other'];
+
+                allTypesToRender.forEach(type => {
+                    if (itemsByType[type] && itemsByType[type].length > 0) {
+                        const group = itemsByType[type];
+                        const rowSpan = group.length;
+                        const config = typeConfig[type];
+
+                        group.forEach((item, index) => {
+                            const btnText = type === 'Important Link' ? 'Browse' : 'Download';
+                            // Add a bottom border to the last item of a group for visual separation
+                            const trBorderClass = (index === group.length - 1) ? 'border-b border-slate-200' : 'border-b border-slate-100';
+
+                            rowsHtml += `<tr class="hover:bg-slate-50 transition-colors ${trBorderClass}">`;
+                            
+                            // Only render the TYPE column for the very first item in the group, spanning across the rows
+                            if (index === 0) {
+                                rowsHtml += `
+                                    <td class="px-6 py-4 align-middle text-center border-r border-slate-100 bg-slate-50/50" rowspan="${rowSpan}">
+                                        <div class="inline-flex flex-col items-center justify-center gap-1.5 px-3 py-2 rounded-xl ${config.badgeClass} shadow-sm w-32">
+                                            <i data-lucide="${config.icon}" class="w-5 h-5 mb-1"></i>
+                                            <span class="text-xs font-bold text-center leading-tight whitespace-normal">${type}</span>
+                                        </div>
+                                    </td>
+                                `;
+                            }
+
+                            // Render Title and Action for every item
+                            rowsHtml += `
+                                <td class="px-6 py-4 text-slate-800 font-medium align-middle">${item['Title'] || '-'}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right align-middle">
+                                    <a href="${item['Link'] || '#'}" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-dark transition-colors bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm hover:shadow">
+                                        ${btnText} <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </a>
+                                </td>
+                            </tr>`;
+                        });
+                    }
+                });
+
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                            <h4 class="text-lg font-bold text-primary flex items-center gap-2">
+                                <i data-lucide="folder-open" class="w-5 h-5 text-accent"></i> ${course}
+                            </h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm min-w-[600px]">
+                                <thead class="bg-white text-slate-400 border-b border-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs w-48 text-center border-r border-slate-100">Category</th>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs">Title / Description</th>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs text-right w-40">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            lucide.createIcons(); // Refresh icons for new HTML
+        }
+
         // Run fetches when page loads
         document.addEventListener('DOMContentLoaded', () => {
             loadHighlights();
             loadPublications();
             loadStudents();
+            loadStudentPortalData(); // Load Portal auth & materials
         });
 
         // DOM Elements
