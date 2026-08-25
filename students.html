@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Corner | Dr. Md. Motiur Rahman</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#3b82f6',
+                        'accent-dark': '#2563eb',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-link.active .icon {
+            color: #ffffff;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <div class="flex min-h-screen relative">
+        
+        <!-- ================= MOBILE HEADER ================= -->
+        <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-primary text-white z-50 flex items-center justify-between px-4 shadow-md">
+            <div class="flex items-center gap-3 font-serif font-bold text-lg">
+                <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-sm">MR</div>
+                Dr. M. Rahman
+            </div>
+            <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+        
+        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-primary text-slate-300 z-50 flex flex-col transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Profile Info -->
+            <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="files/dmmr.jpg" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                </div>
+                <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
+                <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1 scrollbar-hide">
+                <a href="index.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="home" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Home
+                </a>
+                <a href="publications.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="book-open" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Publications
+                </a>
+                <a href="software.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="code" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Software/Tools
+                </a>
+                <a href="supervision.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="users" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Supervision
+                </a>
+                <a href="students.html" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Student Corner
+                </a>
+                <a href="events.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="calendar" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Talks & Events
+                </a>
+                <a href="contact.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Contact
+                </a>
+            </nav>
+
+            <div class="p-6 border-t border-slate-800 flex justify-center gap-5">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="Google Scholar"><i data-lucide="library" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-accent transition-colors hover:scale-110 transform" title="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="ResearchGate"><i data-lucide="book" class="w-5 h-5"></i></a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-1 w-full md:pl-72 pt-16 md:pt-0 min-h-screen relative">
+            
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 md:py-20 animate-fade-in-up">
+                
+                <div class="mb-12">
+                    <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Secure Portal</h2>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Student Corner</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl">Access course materials, lecture notes, assignments, and continuous assessment (CA) marks.</p>
+                </div>
+
+                <!-- LOGIN SECTION -->
+                <div id="student-login-container" class="max-w-md mx-auto bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-16 -top-16 w-40 h-40 bg-accent/10 rounded-full blur-[40px] pointer-events-none"></div>
+                    
+                    <div class="text-center mb-8 relative z-10">
+                        <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="lock" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Student Login</h3>
+                        <p class="text-sm text-slate-500 mt-2">Please enter your credentials to access the portal.</p>
+                    </div>
+
+                    <form id="student-login-form" class="space-y-5 relative z-10">
+                        <div id="login-error-msg" class="hidden bg-rose-50 text-rose-600 text-sm p-3 rounded-lg border border-rose-100 text-center font-medium">
+                            Invalid Student ID or Registration Number.
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Student ID</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i data-lucide="user" class="w-4 h-4 text-slate-400"></i>
+                                </div>
+                                <input type="text" id="login-student-id" class="w-full pl-11 pr-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="e.g. 190101" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Registration Number</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <i data-lucide="hash" class="w-4 h-4 text-slate-400"></i>
+                                </div>
+                                <input type="password" id="login-reg-no" class="w-full pl-11 pr-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="Enter Reg. Number" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group mt-4">
+                            Access Portal <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- DASHBOARD SECTION (Hidden by default) -->
+                <div id="student-dashboard-container" class="hidden space-y-10">
+                    <div class="bg-gradient-to-r from-primary to-slate-800 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl text-white relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-64 h-full bg-accent/20 skew-x-12 transform translate-x-20"></div>
+                        <div class="relative z-10 text-center md:text-left">
+                            <h3 class="text-3xl font-serif font-bold mb-2">Welcome, <span id="student-welcome-name" class="text-blue-400">Student Name</span>!</h3>
+                            <p class="text-slate-300">Student ID: <span id="student-welcome-id" class="font-mono bg-white/10 px-2 py-0.5 rounded"></span></p>
+                        </div>
+                        <button onclick="logoutStudent()" class="relative z-10 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-2.5 rounded-xl font-medium transition-colors flex items-center gap-2">
+                            <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+                        </button>
+                    </div>
+
+                    <div id="courses-materials-container" class="space-y-10">
+                        <!-- Dynamic Course Materials -->
+                    </div>
+                </div>
+
+                <footer class="mt-20 border-t border-slate-200 pt-8 pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div>
+                            &copy; <script>document.write(new Date().getFullYear())</script> Dr. Md. Motiur Rahman. All rights reserved.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://pust.ac.bd" target="_blank" class="hover:text-primary transition-colors">PUST Home</a>
+                            <a href="https://pust.ac.bd/academic/departments/dept_teachers/dept_teachers_profile/100120" target="_blank" class="hover:text-primary transition-colors">University Profile</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function parseCSV(str) {
+            const arr = [];
+            let quote = false;
+            let row = 0, col = 0;
+            for (let c = 0; c < str.length; c++) {
+                let cc = str[c], nc = str[c+1];
+                arr[row] = arr[row] || [];
+                arr[row][col] = arr[row][col] || '';
+                if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+                if (cc == '"') { quote = !quote; continue; }
+                if (cc == ',' && !quote) { ++col; continue; }
+                if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+                if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+                if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+                arr[row][col] += cc;
+            }
+            return arr;
+        }
+
+        let validStudents = [];
+        let courseMaterials = [];
+
+        function loadStudentPortalData() {
+            const authSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=944711249&single=true&output=csv'; 
+            const materialsSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=2088522526&single=true&output=csv';
+
+            if (authSheetURL !== 'YOUR_STUDENT_AUTH_CSV_LINK_HERE') {
+                fetch(authSheetURL).then(res => res.text()).then(csv => {
+                    const data = parseCSV(csv);
+                    const headers = data[0].map(h => h.trim());
+                    validStudents = data.slice(1).map(row => {
+                        let obj = {};
+                        headers.forEach((h, i) => obj[h] = row[i]?.trim());
+                        return obj;
+                    }).filter(s => s['Student ID']);
+                }).catch(e => console.error("Auth Fetch Error", e));
+            } else {
+                validStudents = [
+                    { "Student ID": "190101", "Registration Number": "123456", "Name": "John Doe" },
+                    { "Student ID": "190102", "Registration Number": "654321", "Name": "Jane Smith" }
+                ];
+            }
+
+            if (materialsSheetURL !== 'YOUR_COURSE_MATERIALS_CSV_LINK_HERE') {
+                fetch(materialsSheetURL).then(res => res.text()).then(csv => {
+                    const data = parseCSV(csv);
+                    const headers = data[0].map(h => h.trim());
+                    courseMaterials = data.slice(1).map(row => {
+                        let obj = {};
+                        headers.forEach((h, i) => obj[h] = row[i]?.trim());
+                        return obj;
+                    }).filter(m => m['Course']);
+                }).catch(e => console.error("Materials Fetch Error", e));
+            } else {
+                courseMaterials = [
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Lecture Note", "Title": "Chapter 1: Intro to Matlab", "Date": "Oct 12, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Lecture Note", "Title": "Chapter 2: Roots of Equations", "Date": "Oct 19, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "Assignment", "Title": "Assignment 1: Matrix Operations", "Date": "Oct 15, 2023", "Link": "#" },
+                    { "Course": "CE 2205: Numerical Methods", "Type": "CA Mark", "Title": "Class Test 1 Results", "Date": "Nov 01, 2023", "Link": "#" },
+                    { "Course": "CE 3131: Geotechnical Eng.", "Type": "Lecture Note", "Title": "Module 1: Soil Properties and Classification", "Date": "Sep 20, 2023", "Link": "#" }
+                ];
+            }
+        }
+
+        document.getElementById('student-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputId = document.getElementById('login-student-id').value.trim();
+            const inputReg = document.getElementById('login-reg-no').value.trim();
+            const errorMsg = document.getElementById('login-error-msg');
+
+            const student = validStudents.find(s => s['Student ID'] === inputId && s['Registration Number'] === inputReg);
+
+            if (student) {
+                errorMsg.classList.add('hidden');
+                document.getElementById('student-login-container').classList.add('hidden');
+                document.getElementById('student-dashboard-container').classList.remove('hidden');
+                
+                document.getElementById('student-welcome-name').textContent = student['Name'];
+                document.getElementById('student-welcome-id').textContent = student['Student ID'];
+                
+                renderCourseMaterials();
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        });
+
+        function logoutStudent() {
+            document.getElementById('student-login-form').reset();
+            document.getElementById('login-error-msg').classList.add('hidden');
+            document.getElementById('student-dashboard-container').classList.add('hidden');
+            document.getElementById('student-login-container').classList.remove('hidden');
+        }
+
+        function renderCourseMaterials() {
+            const container = document.getElementById('courses-materials-container');
+            container.innerHTML = '';
+
+            const grouped = {};
+            courseMaterials.forEach(m => {
+                const cName = m['Course'];
+                if(!grouped[cName]) grouped[cName] = [];
+                grouped[cName].push(m);
+            });
+
+            const fixedTypes = ['Lecture Note', 'Assignment', 'Instruction', 'Important Link', 'CA Mark'];
+            const typeConfig = {
+                'Lecture Note': { badgeClass: 'bg-blue-50 text-accent border border-blue-100', icon: 'book-open' },
+                'Assignment': { badgeClass: 'bg-orange-50 text-orange-600 border border-orange-100', icon: 'edit' },
+                'Instruction': { badgeClass: 'bg-rose-50 text-rose-600 border border-rose-100', icon: 'alert-circle' },
+                'Important Link': { badgeClass: 'bg-emerald-50 text-emerald-600 border border-emerald-100', icon: 'external-link' },
+                'CA Mark': { badgeClass: 'bg-purple-50 text-purple-600 border border-purple-100', icon: 'award' },
+                'Other': { badgeClass: 'bg-slate-50 text-slate-600 border border-slate-200', icon: 'file' }
+            };
+
+            for (const course in grouped) {
+                let rowsHtml = '';
+                const courseItems = grouped[course];
+                
+                const itemsByType = {};
+                courseItems.forEach(item => {
+                    const rawType = item['Type'] || '';
+                    let matchedType = 'Other';
+                    
+                    for (const ft of fixedTypes) {
+                        if (rawType.toLowerCase().includes(ft.toLowerCase())) {
+                            matchedType = ft;
+                            break;
+                        }
+                    }
+                    if (!itemsByType[matchedType]) itemsByType[matchedType] = [];
+                    itemsByType[matchedType].push(item);
+                });
+
+                const allTypesToRender = [...fixedTypes, 'Other'];
+
+                allTypesToRender.forEach(type => {
+                    if (itemsByType[type] && itemsByType[type].length > 0) {
+                        const group = itemsByType[type];
+                        const rowSpan = group.length;
+                        const config = typeConfig[type];
+
+                        group.forEach((item, index) => {
+                            const btnText = type === 'Important Link' ? 'Browse' : 'Download';
+                            const trBorderClass = (index === group.length - 1) ? 'border-b border-slate-200' : 'border-b border-slate-100';
+
+                            rowsHtml += `<tr class="hover:bg-slate-50 transition-colors ${trBorderClass}">`;
+                            
+                            if (index === 0) {
+                                rowsHtml += `
+                                    <td class="px-6 py-4 align-middle text-center border-r border-slate-100 bg-slate-50/50" rowspan="${rowSpan}">
+                                        <div class="inline-flex flex-col items-center justify-center gap-1.5 px-3 py-2 rounded-xl ${config.badgeClass} shadow-sm w-32">
+                                            <i data-lucide="${config.icon}" class="w-5 h-5 mb-1"></i>
+                                            <span class="text-xs font-bold text-center leading-tight whitespace-normal">${type}</span>
+                                        </div>
+                                    </td>
+                                `;
+                            }
+
+                            rowsHtml += `
+                                <td class="px-6 py-4 text-slate-800 font-medium align-middle">${item['Title'] || '-'}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right align-middle">
+                                    <a href="${item['Link'] || '#'}" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-dark transition-colors bg-white border border-slate-200 px-3 py-1.5 rounded-lg shadow-sm hover:shadow">
+                                        ${btnText} <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </a>
+                                </td>
+                            </tr>`;
+                        });
+                    }
+                });
+
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                            <h4 class="text-lg font-bold text-primary flex items-center gap-2">
+                                <i data-lucide="folder-open" class="w-5 h-5 text-accent"></i> ${course}
+                            </h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm min-w-[600px]">
+                                <thead class="bg-white text-slate-400 border-b border-slate-100">
+                                    <tr>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs w-48 text-center border-r border-slate-100">Category</th>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs">Title / Description</th>
+                                        <th class="px-6 py-3 font-semibold uppercase tracking-wider text-xs text-right w-40">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadStudentPortalData);
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        function toggleSidebar() {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>

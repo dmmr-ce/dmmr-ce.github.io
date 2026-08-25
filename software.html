@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software & Tools | Dr. Md. Motiur Rahman</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#3b82f6',
+                        'accent-dark': '#2563eb',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-link.active .icon {
+            color: #ffffff;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <div class="flex min-h-screen relative">
+        
+        <!-- ================= MOBILE HEADER ================= -->
+        <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-primary text-white z-50 flex items-center justify-between px-4 shadow-md">
+            <div class="flex items-center gap-3 font-serif font-bold text-lg">
+                <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-sm">MR</div>
+                Dr. M. Rahman
+            </div>
+            <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+        
+        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-primary text-slate-300 z-50 flex flex-col transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Profile Info -->
+            <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="files/dmmr.jpg" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                </div>
+                <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
+                <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1 scrollbar-hide">
+                <a href="index.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="home" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Home
+                </a>
+                <a href="publications.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="book-open" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Publications
+                </a>
+                <a href="software.html" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="code" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Software/Tools
+                </a>
+                <a href="supervision.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="users" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Supervision
+                </a>
+                <a href="students.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Student Corner
+                </a>
+                <a href="events.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="calendar" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Talks & Events
+                </a>
+                <a href="contact.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Contact
+                </a>
+            </nav>
+
+            <div class="p-6 border-t border-slate-800 flex justify-center gap-5">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="Google Scholar"><i data-lucide="library" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-accent transition-colors hover:scale-110 transform" title="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="ResearchGate"><i data-lucide="book" class="w-5 h-5"></i></a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-1 w-full md:pl-72 pt-16 md:pt-0 min-h-screen relative">
+            
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 md:py-20 animate-fade-in-up">
+                
+                <div class="mb-12">
+                    <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Open Source & Web Apps</h2>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Software & Tools</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl">Interactive structural analysis applications, computer tools, and libraries developed for civil engineering applications and research.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- FeView -->
+                    <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-300 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent">
+                                <i data-lucide="terminal" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">FeView</h3>
+                        <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                            <img src="files/FeView.png" alt="FeView UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A finite element model (FEM) visualization and post-processing tool developed specifically for OpenSees. Intuitive interface to visualize structural models, mode shapes, and response outputs.</p>
+                        <div class="flex gap-3">
+                            <a href="https://doi.org/10.1016/j.softx.2021.100751" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-accent text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Frame Analyzer -->
+                    <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-emerald-500/30 transition-all duration-300 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
+                                <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Frame Analyzer</h3>
+                        <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                            <img src="files/frame2D.png" alt="Frame Analyzer UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">An interactive computational web tool for the linear and non-linear structural analysis of 2D frame structures subjected to various static and lateral loads.</p>
+                        <div class="flex gap-3">
+                            <a href="https://motiurce.github.io/Frame_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-emerald-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Truss Analyzer -->
+                    <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-orange-500/30 transition-all duration-300 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-600">
+                                <i data-lucide="triangle" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Truss Analyzer</h3>
+                        <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                            <img src="files/truss2D.png" alt="Truss Analyzer UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">A lightweight, fast application for calculating internal axial forces, support reactions, and nodal displacements in planar truss systems using the stiffness method.</p>
+                        <div class="flex gap-3">
+                            <a href="https://motiurce.github.io/Truss_Analyzer" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-orange-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- MDoF Systems -->
+                    <div class="group bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-purple-500/30 transition-all duration-300 flex flex-col h-full">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                                <i data-lucide="activity" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-3">MDoF Systems</h3>
+                        <div class="w-full aspect-video mb-6 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+                            <img src="files/mdof.png" alt="MDoF Systems UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <p class="text-slate-600 mb-6 flex-grow leading-relaxed">Analytical application for evaluating the dynamic response, natural frequencies, and mode shapes of Multi-Degree of Freedom structural systems under seismic excitations.</p>
+                        <div class="flex gap-3">
+                            <a href="#" class="w-full flex items-center justify-center gap-2 text-sm bg-slate-900 hover:bg-purple-600 text-white px-4 py-3 rounded-xl transition-colors font-medium">
+                                <i data-lucide="play" class="w-4 h-4"></i> Browse / Run
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="mt-20 border-t border-slate-200 pt-8 pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div>
+                            &copy; <script>document.write(new Date().getFullYear())</script> Dr. Md. Motiur Rahman. All rights reserved.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://pust.ac.bd" target="_blank" class="hover:text-primary transition-colors">PUST Home</a>
+                            <a href="https://pust.ac.bd/academic/departments/dept_teachers/dept_teachers_profile/100120" target="_blank" class="hover:text-primary transition-colors">University Profile</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        function toggleSidebar() {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>

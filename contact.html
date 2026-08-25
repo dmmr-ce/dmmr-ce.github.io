@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Dr. Md. Motiur Rahman</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#3b82f6',
+                        'accent-dark': '#2563eb',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-link.active .icon {
+            color: #ffffff;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <div class="flex min-h-screen relative">
+        
+        <!-- ================= MOBILE HEADER ================= -->
+        <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-primary text-white z-50 flex items-center justify-between px-4 shadow-md">
+            <div class="flex items-center gap-3 font-serif font-bold text-lg">
+                <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-sm">MR</div>
+                Dr. M. Rahman
+            </div>
+            <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+        
+        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-primary text-slate-300 z-50 flex flex-col transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Profile Info -->
+            <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="files/dmmr.jpg" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                </div>
+                <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
+                <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1 scrollbar-hide">
+                <a href="index.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="home" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Home
+                </a>
+                <a href="publications.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="book-open" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Publications
+                </a>
+                <a href="software.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="code" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Software/Tools
+                </a>
+                <a href="supervision.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="users" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Supervision
+                </a>
+                <a href="students.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Student Corner
+                </a>
+                <a href="events.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="calendar" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Talks & Events
+                </a>
+                <a href="contact.html" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Contact
+                </a>
+            </nav>
+
+            <div class="p-6 border-t border-slate-800 flex justify-center gap-5">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="Google Scholar"><i data-lucide="library" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-accent transition-colors hover:scale-110 transform" title="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="ResearchGate"><i data-lucide="book" class="w-5 h-5"></i></a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-1 w-full md:pl-72 pt-16 md:pt-0 min-h-screen relative">
+            
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 md:py-20 animate-fade-in-up">
+                
+                <div class="mb-12 text-center md:text-left">
+                    <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Get in Touch</h2>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Contact Information</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto md:mx-0">For research collaborations, speaking engagements, or prospective student inquiries, please feel free to reach out.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+                    <!-- Contact Info Card -->
+                    <div class="lg:col-span-2 bg-primary text-white rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl">
+                        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-accent/30 rounded-full blur-[60px] pointer-events-none"></div>
+                        
+                        <h3 class="text-2xl font-serif font-bold mb-8">Direct Contact</h3>
+                        
+                        <div class="space-y-8 relative z-10">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400 font-medium mb-1">Email</p>
+                                    <a href="mailto:motiur@pust.ac.bd" class="text-lg font-medium hover:text-accent transition-colors block">motiur@pust.ac.bd</a>
+                                    <a href="mailto:motiur.ce@gmail.com" class="text-sm font-medium text-slate-300 hover:text-accent transition-colors">motiur.ce@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400 font-medium mb-1">Phone</p>
+                                    <p class="text-lg font-medium">+8801721717447</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-400 font-medium mb-1">Office</p>
+                                    <p class="text-slate-200 leading-relaxed">
+                                        Department of Civil Engineering<br>
+                                        Pabna University of Science and Technology<br>
+                                        Pabna, Bangladesh
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-3 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+                        <form onsubmit="event.preventDefault(); alert('Message feature is a mockup.');" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all" placeholder="john@example.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Inquiry Type</label>
+                                <select class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all text-slate-700">
+                                    <option>Prospective Student</option>
+                                    <option>Research Collaboration</option>
+                                    <option>General Inquiry</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Message</label>
+                                <textarea rows="5" class="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent focus:bg-white outline-none transition-all resize-none" placeholder="How can I help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                Send Message <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <footer class="mt-20 border-t border-slate-200 pt-8 pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div>
+                            &copy; <script>document.write(new Date().getFullYear())</script> Dr. Md. Motiur Rahman. All rights reserved.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://pust.ac.bd" target="_blank" class="hover:text-primary transition-colors">PUST Home</a>
+                            <a href="https://pust.ac.bd/academic/departments/dept_teachers/dept_teachers_profile/100120" target="_blank" class="hover:text-primary transition-colors">University Profile</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        function toggleSidebar() {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervision | Dr. Md. Motiur Rahman</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#3b82f6',
+                        'accent-dark': '#2563eb',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.4s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-link.active .icon {
+            color: #ffffff;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <div class="flex min-h-screen relative">
+        
+        <!-- ================= MOBILE HEADER ================= -->
+        <div class="md:hidden fixed top-0 left-0 right-0 h-16 bg-primary text-white z-50 flex items-center justify-between px-4 shadow-md">
+            <div class="flex items-center gap-3 font-serif font-bold text-lg">
+                <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-sm">MR</div>
+                Dr. M. Rahman
+            </div>
+            <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- ================= SIDEBAR ================= -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-primary/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+        
+        <aside id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-primary text-slate-300 z-50 flex flex-col transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0 shadow-2xl md:shadow-none border-r border-slate-800">
+            
+            <button id="close-sidebar-btn" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Profile Info -->
+            <div class="p-8 pb-6 border-b border-slate-800 flex flex-col items-center text-center mt-8 md:mt-0">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-xl mb-4 relative bg-slate-800">
+                    <img src="files/dmmr.jpg" alt="Dr. Md. Motiur Rahman" class="w-full h-full object-cover">
+                </div>
+                <h1 class="font-serif font-bold text-2xl text-white tracking-wide">Md. Motiur Rahman</h1>
+                <p class="text-accent text-sm font-medium mt-1 tracking-wider uppercase">Associate Professor</p>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-1 scrollbar-hide">
+                <a href="index.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="home" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Home
+                </a>
+                <a href="publications.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="book-open" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Publications
+                </a>
+                <a href="software.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="code" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Software/Tools
+                </a>
+                <a href="supervision.html" class="nav-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="users" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Supervision
+                </a>
+                <a href="students.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Student Corner
+                </a>
+                <a href="events.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="calendar" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Talks & Events
+                </a>
+                <a href="contact.html" class="nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-all group">
+                    <i data-lucide="mail" class="w-5 h-5 icon text-slate-400 group-hover:text-white transition-colors"></i> Contact
+                </a>
+            </nav>
+
+            <div class="p-6 border-t border-slate-800 flex justify-center gap-5">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="Google Scholar"><i data-lucide="library" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-accent transition-colors hover:scale-110 transform" title="LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors hover:scale-110 transform" title="ResearchGate"><i data-lucide="book" class="w-5 h-5"></i></a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="flex-1 w-full md:pl-72 pt-16 md:pt-0 min-h-screen relative">
+            
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 mix-blend-multiply pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-12 md:py-20 animate-fade-in-up">
+                
+                <div class="mb-12">
+                    <h2 class="text-sm font-bold tracking-widest uppercase text-accent mb-2">Mentorship</h2>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Thesis Supervision</h1>
+                    <p class="text-lg text-slate-600 max-w-3xl">I am privileged to work with an exceptional group of students pushing the boundaries of civil and structural engineering.</p>
+                </div>
+
+                <h3 class="text-2xl font-serif font-bold text-primary mb-8 flex items-center gap-3">
+                    <i data-lucide="users" class="text-accent w-6 h-6"></i> Current Students
+                </h3>
+                
+                <div id="current-students-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="animate-pulse bg-white rounded-2xl border border-slate-200 p-8">
+                        <div class="h-4 bg-slate-200 rounded w-1/4 mb-4"></div>
+                        <div class="h-6 bg-slate-200 rounded w-3/4 mb-4"></div>
+                        <div class="h-4 bg-slate-200 rounded w-full mb-8"></div>
+                        <div class="h-4 bg-slate-200 rounded w-1/2 mb-2"></div>
+                        <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-serif font-bold text-primary mb-8 flex items-center gap-3">
+                    <i data-lucide="award" class="text-accent w-6 h-6"></i> Selected Alumni
+                </h3>
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm overflow-x-auto">
+                    <table class="w-full text-left text-sm min-w-[800px]">
+                        <thead class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                            <tr>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Name</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Degree & Year</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Thesis Title</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs whitespace-nowrap">Current Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alumni-table-body" class="divide-y divide-slate-100">
+                            <tr>
+                                <td colspan="4" class="px-6 py-8">
+                                    <div class="animate-pulse flex space-x-4">
+                                        <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+                                        <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+                                        <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <footer class="mt-20 border-t border-slate-200 pt-8 pb-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div>
+                            &copy; <script>document.write(new Date().getFullYear())</script> Dr. Md. Motiur Rahman. All rights reserved.
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://pust.ac.bd" target="_blank" class="hover:text-primary transition-colors">PUST Home</a>
+                            <a href="https://pust.ac.bd/academic/departments/dept_teachers/dept_teachers_profile/100120" target="_blank" class="hover:text-primary transition-colors">University Profile</a>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function parseCSV(str) {
+            const arr = [];
+            let quote = false;
+            let row = 0, col = 0;
+            for (let c = 0; c < str.length; c++) {
+                let cc = str[c], nc = str[c+1];
+                arr[row] = arr[row] || [];
+                arr[row][col] = arr[row][col] || '';
+                if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+                if (cc == '"') { quote = !quote; continue; }
+                if (cc == ',' && !quote) { ++col; continue; }
+                if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+                if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+                if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+                arr[row][col] += cc;
+            }
+            return arr;
+        }
+
+        function loadStudents() {
+            const studentsSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_bqOlzUJYAiAz1zMOkthcgaumbzUJ7QD63EfUbpyYx_7RZX8c9BLEIuiiJ-QzlrO85NWKX6vvJKJQ/pub?gid=457075240&single=true&output=csv';
+            const fetchURL = studentsSheetURL === 'YOUR_STUDENTS_CSV_LINK_HERE' ? 'students.csv' : studentsSheetURL;
+
+            fetch(fetchURL)
+                .then(res => {
+                    if(!res.ok) throw new Error("Could not fetch students");
+                    return res.text();
+                })
+                .then(csvText => {
+                    const data = parseCSV(csvText);
+                    if(data.length < 2) return;
+
+                    const headers = data[0].map(h => h.trim());
+                    const rows = [];
+                    for(let i = 1; i < data.length; i++) {
+                        if(data[i].length === headers.length) {
+                            let obj = {};
+                            headers.forEach((h, idx) => obj[h] = data[i][idx].trim());
+                            rows.push(obj);
+                        }
+                    }
+
+                    const currentStudents = {};
+                    const alumni = {};
+
+                    rows.forEach(row => {
+                        const status = (row['Status'] || '').toLowerCase().trim();
+                        const title = (row['Thesis Title'] || 'Untitled').trim();
+                        
+                        if (status === 'running') {
+                            if (!currentStudents[title]) currentStudents[title] = [];
+                            currentStudents[title].push(row);
+                        } else if (status === 'completed') {
+                            if (!alumni[title]) alumni[title] = [];
+                            alumni[title].push(row);
+                        }
+                    });
+
+                    // Current Students
+                    const currentContainer = document.getElementById('current-students-container');
+                    currentContainer.innerHTML = '';
+                    
+                    if (Object.keys(currentStudents).length === 0) {
+                        currentContainer.innerHTML = '<p class="text-slate-500">No current students data found.</p>';
+                    } else {
+                        for (const title in currentStudents) {
+                            const group = currentStudents[title];
+                            const first = group[0];
+                            const degree = first['Degree'] || 'Thesis Group';
+                            const desc = first['Description'] || '';
+                            
+                            const isBSc = degree.toLowerCase().includes('b.sc');
+                            const badgeBg = isBSc ? 'bg-blue-50 text-accent' : 'bg-emerald-50 text-emerald-700';
+                            const iconColor = isBSc ? 'text-accent' : 'text-emerald-600';
+
+                            let membersHtml = '';
+                            group.forEach(member => {
+                                if (member['Name']) {
+                                    membersHtml += `<li class="flex items-center gap-3 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div> ${member['Name']}</li>`;
+                                }
+                            });
+
+                            currentContainer.innerHTML += `
+                                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-lg transition-shadow flex flex-col h-full">
+                                    <div class="flex-grow">
+                                        <span class="inline-block px-3 py-1 ${badgeBg} text-xs font-bold rounded-md mb-3 uppercase tracking-wider">${degree}</span>
+                                        <h4 class="text-xl font-bold text-primary mb-3">${title}</h4>
+                                        <p class="text-sm text-slate-600 mb-6 leading-relaxed">${desc}</p>
+                                    </div>
+                                    <div class="border-t border-slate-100 pt-4 mt-auto">
+                                        <h5 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 ${iconColor}"></i> Group Members</h5>
+                                        <ul class="space-y-2">
+                                            ${membersHtml}
+                                        </ul>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+
+                    // Alumni
+                    const alumniBody = document.getElementById('alumni-table-body');
+                    alumniBody.innerHTML = '';
+                    
+                    if (Object.keys(alumni).length === 0) {
+                        alumniBody.innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">No alumni data found.</td></tr>';
+                    } else {
+                        for (const title in alumni) {
+                            const group = alumni[title];
+                            const first = group[0];
+                            const rowSpan = group.length;
+                            
+                            const yearStr = first['Year'] ? `, ${first['Year']}` : '';
+                            const degreeYear = `${first['Degree'] || ''}${yearStr}`;
+                            
+                            let pdfBtn = '';
+                            if (first['PDF Link']) {
+                                pdfBtn = `<a href="${first['PDF Link']}" target="_blank" class="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 bg-rose-50 text-rose-600 rounded-lg text-xs font-bold hover:bg-rose-100 transition-colors border border-rose-100">
+                                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i> View PDF
+                                          </a>`;
+                            }
+
+                            group.forEach((member, index) => {
+                                const trBorder = (index === group.length - 1) ? 'border-b border-slate-200' : 'border-b border-slate-100';
+                                
+                                let html = `<tr class="hover:bg-slate-50 transition-colors">`;
+                                html += `<td class="px-6 py-4 ${trBorder}"><div class="font-bold text-primary whitespace-nowrap">${member['Name']}</div></td>`;
+                                
+                                if (index === 0) {
+                                    html += `
+                                        <td class="px-6 py-4 text-slate-600 whitespace-nowrap border-b border-slate-200 align-top" rowspan="${rowSpan}">${degreeYear}</td>
+                                        <td class="px-6 py-4 text-slate-600 border-b border-slate-200 align-top" rowspan="${rowSpan}">
+                                            <div class="flex flex-col gap-2 items-start">
+                                                <span class="italic leading-relaxed">${title}</span>
+                                                ${pdfBtn}
+                                            </div>
+                                        </td>
+                                    `;
+                                }
+                                
+                                const address = member['Current Address'] || '';
+                                let badgeStyle = 'bg-slate-100 text-slate-700';
+                                if (address.includes('LGED')) badgeStyle = 'bg-blue-50 text-accent';
+                                else if (address.includes('PWD')) badgeStyle = 'bg-emerald-50 text-emerald-700';
+                                else if (address.includes('RHD')) badgeStyle = 'bg-orange-50 text-orange-700';
+                                else if (address.includes('Ph.D.')) badgeStyle = 'bg-purple-50 text-purple-700';
+
+                                html += `<td class="px-6 py-4 ${trBorder}">`;
+                                if(address) {
+                                    html += `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${badgeStyle} text-xs font-semibold whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3"></i> ${address}</span>`;
+                                }
+                                html += `</td></tr>`;
+                                
+                                alumniBody.innerHTML += html;
+                            });
+                        }
+                    }
+                    lucide.createIcons();
+                })
+                .catch(err => {
+                    console.error("Students error:", err);
+                    document.getElementById('current-students-container').innerHTML = '<p class="text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">Could not load current students.</p>';
+                    document.getElementById('alumni-table-body').innerHTML = '<tr><td colspan="4" class="px-6 py-4 text-center text-slate-500">Could not load alumni data.</td></tr>';
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadStudents);
+
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        function toggleSidebar() {
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>
